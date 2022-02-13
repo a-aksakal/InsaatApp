@@ -16,7 +16,7 @@ function FormDaireTipi({ paramSetOpenAdd }) {
     //   requestBody
     // );
     const response = await axios.post(
-      "http://private-de332a-insaatapi6.apiary-mock.com/postFlatType",
+      "https://private-de332a-insaatapi6.apiary-mock.com/postFlatType",
       requestBody
     );
     if (response.data.Result == "İşlem Başarılı!") {

@@ -16,7 +16,7 @@ function FormCinsiyet({ paramSetOpenAdd }) {
     //   requestBody
     // );
     const response = await axios.post(
-      "http://private-de332a-insaatapi6.apiary-mock.com/postGender",
+      "https://private-de332a-insaatapi6.apiary-mock.com/postGender",
       requestBody
     );
     if (response.data.Result == "İşlem Başarılı!") {

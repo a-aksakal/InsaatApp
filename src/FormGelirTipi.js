@@ -16,7 +16,7 @@ function FormGelirTipi({ paramSetOpenAdd }) {
     //   requestBody
     // );
     const response = await axios.post(
-      "http://private-de332a-insaatapi6.apiary-mock.com/postIncomeType",
+      "https://private-de332a-insaatapi6.apiary-mock.com/postIncomeType",
       requestBody
     );
     if (response.data.Result == "İşlem Başarılı!") {

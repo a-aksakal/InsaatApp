@@ -16,7 +16,7 @@ function FormSehir({ paramSetOpenAdd }) {
     //   requestBody
     // );
     const response = await axios.post(
-      "http://private-de332a-insaatapi6.apiary-mock.com/postCity",
+      "https://private-de332a-insaatapi6.apiary-mock.com/postCity",
       requestBody
     );
     if (response.data.Result == "İşlem Başarılı!") {
