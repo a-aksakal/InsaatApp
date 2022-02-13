@@ -18,7 +18,7 @@ function Header() {
         <div className="container">
           {/* BEGIN LOGO */}
           <div className="page-logo">
-            <a href="index.html">
+            <a href="#">
               <img src="./wissen.png" alt="logo" className="logo-default" />
             </a>
           </div>
