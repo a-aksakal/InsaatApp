@@ -1047,7 +1047,7 @@ Page Header
       background: #eff3f8;
       padding: 20px 0 0 0;
       height: auto;
-      display: none; }
+      /* display: none;*/ } /*YORUM! Mobil cihazlarda uyumluluk sorunu olduğu için bu kısmı commentledim. orjinali block olacak*/
       .page-header .page-header-menu > .container {
         width: 100%;
         max-width: none !important;
@@ -1093,7 +1093,7 @@ Page Header
             float: none !important;
             width: auto;
             background: #fff;
-            display: none; }
+            display: block; /*YORUM Mobil uyumluluk için menü direk açılıyor. Orjinali none olarak işaretli*/ }
           .page-header .page-header-menu .hor-menu .navbar-nav li.mega-menu-dropdown.open > .dropdown-menu {
             display: block;
             min-width: 100% !important; }
