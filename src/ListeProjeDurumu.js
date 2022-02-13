@@ -22,12 +22,12 @@ function ListeProjeDurumu() {
   const [open, setOpen] = useState(false);
   const [openAdd, setOpenAdd] = useState(false);
   useEffect(async () => {
-    // const response = await axios.get(
-    //   "https://private-de332a-insaatapi6.apiary-mock.com/getProjectStatusList"
-    // );
     const response = await axios.get(
-      "http://localhost:8080/getProjectStatusList"
+      "https://private-de332a-insaatapi6.apiary-mock.com/getProjectStatusList"
     );
+    // const response = await axios.get(
+    //   "http://localhost:8080/getProjectStatusList"
+    // );
     setProjectStatus({
       projectStatuses: response.data[0].ProjectStatusTable,
       refresh: false,
