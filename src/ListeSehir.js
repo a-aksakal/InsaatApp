@@ -23,7 +23,7 @@ function ListeSehir() {
   const [openAdd, setOpenAdd] = useState(false);
   const [searchParam, setsearchParam] = useSearchParams();
   useEffect(async () => {
-    const response = await axios.get(siteAddress + "getCityList");
+    const response = await axios.get(siteAddress + "/getCityList");
     // const response = await axios.get("http://localhost:8080/getCityList");
     setCityList({
       cities: response.data[0].CityTable,
@@ -37,7 +37,7 @@ function ListeSehir() {
     };
 
     const response = await axios.delete(
-      "https://private-de332a-insaatapi6.apiary-mock.com/deleteCity",
+      siteAddress + "/deleteCity",
       requestBody
     );
     // const response = await axios.delete(
