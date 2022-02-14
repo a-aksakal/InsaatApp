@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import GetCustomerList from "./MockServices/GetCustomerList";
 import GetProjectList from "./MockServices/GetProjectList";
+import siteAddress from "./SiteAddress";
 
 function FormZiyaret() {
   const [visitDate, setVisitDate] = useState();
@@ -19,10 +20,7 @@ function FormZiyaret() {
       Notes: notes,
     };
 
-    const response = await axios.post(
-      "https://private-de332a-insaatapi6.apiary-mock.com/postVisit",
-      requestBody
-    );
+    const response = await axios.post(siteAddress + "/postVisit", requestBody);
     // const response = await axios.post(
     //   "http://localhost:8080/postVisit",
     //   requestBody

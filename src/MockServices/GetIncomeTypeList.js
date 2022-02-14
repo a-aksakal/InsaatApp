@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import SiteAddress from "../SiteAddress";
+
 function GetIncomeTypeList({ setIncomeTypeID, paramSetIncomeTypeList }) {
   const [myArrayData, setMyArrayData] = useState([]);
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getIncomeTypeList"
-    );
+    const response = await axios.get(SiteAddress + "/getIncomeTypeList");
     // const response = await axios.get("http://localhost:8080/getIncomeTypeList");
     setMyArrayData(response.data[0].IncomeTypeTable);
     if (paramSetIncomeTypeList != undefined) {

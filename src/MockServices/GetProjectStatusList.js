@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import siteAddress from "../SiteAddress";
 
 function GetProjectStatusList({
   paramSetProjectStatusList,
@@ -9,9 +10,7 @@ function GetProjectStatusList({
   const [myArrayData, setMyArrayData] = useState([]);
 
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getProjectStatusList"
-    );
+    const response = await axios.get(siteAddress + "/getProjectStatusList");
     // const response = await axios.get(
     //   "http://localhost:8080/getProjectStatusList"
     // );

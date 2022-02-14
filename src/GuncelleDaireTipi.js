@@ -8,6 +8,7 @@ import { useSearchParams } from "react-router-dom";
 import GetGenderList from "./MockServices/GetGenderList";
 import ListeProje from "./ListeProje";
 import GetFlatType from "./MockServices/GetFlatType";
+import siteAddress from "./SiteAddress";
 
 function GuncelleDaireTipi({ paramSetOpen }) {
   const [flatTypeName, setFlatTypeName] = useState();
@@ -29,10 +30,7 @@ function GuncelleDaireTipi({ paramSetOpen }) {
       FlatTypeName: flatTypeName,
     };
 
-    const response = await axios.put(
-      "https://private-de332a-insaatapi6.apiary-mock.com/putFlatType",
-      requestBody
-    );
+    const response = await axios.put(siteAddress + "/putFlatType", requestBody);
     // const response = await axios.put(
     //   "http://localhost:8080/putFlatType",
     //   requestBody

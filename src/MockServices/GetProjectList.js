@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import SiteAddress from "../SiteAddress";
 
 function GetProjectList({ paramProjectList, setProjectID }) {
   const [myArrayData, setMyArrayData] = useState([]);
   const [refresh, setRefresh] = useState(false);
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getProjectList"
-    );
+    const response = await axios.get(SiteAddress + "/getProjectList");
     // const response = await axios.get("http://localhost:8080/getProjectList");
     setMyArrayData(response.data[0].ProjectTable);
     setRefresh(false);

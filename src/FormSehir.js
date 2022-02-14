@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import axios from "axios";
+import SiteAddress from "./SiteAddress";
 
 function FormSehir({ paramSetOpenAdd }) {
   const [cityName, setCityName] = useState();
@@ -15,10 +16,7 @@ function FormSehir({ paramSetOpenAdd }) {
     //   "http://localhost:8080/postCity",
     //   requestBody
     // );
-    const response = await axios.post(
-      "https://private-de332a-insaatapi6.apiary-mock.com/postCity",
-      requestBody
-    );
+    const response = await axios.post(SiteAddress + "/postCity", requestBody);
     if (response.data.Result == "İşlem Başarılı!") {
       window.alert("Şehir Bilgisi Eklenmiştir.");
       console.log(requestBody);

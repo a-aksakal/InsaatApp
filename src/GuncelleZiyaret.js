@@ -6,6 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import GetCustomerList from "./MockServices/GetCustomerList";
 import GetProjectList from "./MockServices/GetProjectList";
 import ListeZiyaret from "./ListeZiyaret";
+import siteAddress from "./SiteAddress";
 
 function GuncelleZiyaret({ paramSetOpen }) {
   const [visitDate, setVisitDate] = useState();
@@ -62,10 +63,7 @@ function GuncelleZiyaret({ paramSetOpen }) {
       Notes: notes,
     };
 
-    const response = await axios.put(
-      "https://private-de332a-insaatapi6.apiary-mock.com/putVisit",
-      requestBody
-    );
+    const response = await axios.put(siteAddress + "/putVisit", requestBody);
     // const response = await axios.put(
     //   "http://localhost:8080/putVisit",
     //   requestBody

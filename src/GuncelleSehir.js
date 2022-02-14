@@ -4,6 +4,7 @@ import Header from "./Header";
 import axios from "axios";
 import GetCityList from "./MockServices/GetCityList";
 import { useSearchParams } from "react-router-dom";
+import siteAddress from "./SiteAddress";
 
 function GuncelleSehir({ paramSetOpen }) {
   const [cityName, setCityName] = useState();
@@ -25,10 +26,7 @@ function GuncelleSehir({ paramSetOpen }) {
       CityName: cityName,
     };
 
-    const response = await axios.put(
-      "https://private-de332a-insaatapi6.apiary-mock.com/putCity",
-      requestBody
-    );
+    const response = await axios.put(siteAddress + "/putCity", requestBody);
     // const response = await axios.put(
     //   "http://localhost:8080/putCity",
     //   requestBody

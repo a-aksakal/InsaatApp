@@ -2,7 +2,7 @@ import { useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import axios from "axios";
-
+import SiteAddress from "./SiteAddress";
 function FormCalisan() {
   const [name, setName] = useState();
   const [surname, setSurname] = useState();
@@ -18,7 +18,7 @@ function FormCalisan() {
     };
 
     const response = await axios.post(
-      "https://private-de332a-insaatapi6.apiary-mock.com/postEmployee",
+      SiteAddress + "/postEmployee",
       requestBody
     );
     // const response = await axios.post(

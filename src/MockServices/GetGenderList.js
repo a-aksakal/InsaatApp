@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import SiteAddress from "../SiteAddress";
 
 function GetGenderList({ setGenderID, paramSetGenderList }) {
   const [myArrayData, setMyArrayData] = useState([]);
   useEffect(
     //useEffect sayfa ilk açıldığında çalışır
     async () => {
-      const response = await axios.get(
-        "https://private-de332a-insaatapi6.apiary-mock.com/getGenderList"
-      );
+      const response = await axios.get(SiteAddress + "/getGenderList");
       // const response = await axios.get("http://localhost:8080/getGenderList");
 
       setMyArrayData(response.data[0].GenderTable);

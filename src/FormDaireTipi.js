@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import axios from "axios";
+import SiteAddress from "./SiteAddress";
 
 function FormDaireTipi({ paramSetOpenAdd }) {
   const [FlatTypeName, setFlatTypeName] = useState();
@@ -16,7 +17,7 @@ function FormDaireTipi({ paramSetOpenAdd }) {
     //   requestBody
     // );
     const response = await axios.post(
-      "https://private-de332a-insaatapi6.apiary-mock.com/postFlatType",
+      SiteAddress + "/postFlatType",
       requestBody
     );
     if (response.data.Result == "İşlem Başarılı!") {

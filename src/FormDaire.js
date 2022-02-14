@@ -5,6 +5,7 @@ import { useState } from "react";
 import GetFlatType from "./MockServices/GetFlatType";
 import GetProjectList from "./MockServices/GetProjectList";
 import GetFlatStatus from "./MockServices/GetFlatStatus";
+import SiteAddress from "./SiteAddress";
 
 function FormDaire() {
   const [flatNO, setFlatNO] = useState();
@@ -22,10 +23,7 @@ function FormDaire() {
       Price: price,
     };
 
-    const response = await axios.post(
-      "https://private-de332a-insaatapi6.apiary-mock.com/postFlat",
-      requestBody
-    );
+    const response = await axios.post(SiteAddress + "/postFlat", requestBody);
     // const response = await axios.post(
     //   "http://localhost:8080/postFlat",
     //   requestBody

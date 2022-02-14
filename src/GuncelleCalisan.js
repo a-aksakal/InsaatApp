@@ -4,6 +4,7 @@ import Header from "./Header";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
 import GetEmployeeList from "./MockServices/GetEmployeeList";
+import siteAddress from "./SiteAddress";
 
 function GuncelleCalisan({ paramSetOpen }) {
   const [name, setName] = useState();
@@ -41,10 +42,7 @@ function GuncelleCalisan({ paramSetOpen }) {
       Password: password,
     };
 
-    const response = await axios.put(
-      "https://private-de332a-insaatapi6.apiary-mock.com/putEmployee",
-      requestBody
-    );
+    const response = await axios.put(siteAddress + "/putEmployee", requestBody);
     // const response = await axios.put(
     //   "http://localhost:8080/putEmployee",
     //   requestBody

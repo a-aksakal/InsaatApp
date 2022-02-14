@@ -14,6 +14,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import siteAddress from "./SiteAddress";
 
 function ListeProje() {
   const [searchParam, setsearchParam] = useSearchParams();
@@ -36,7 +37,7 @@ function ListeProje() {
     };
 
     const response = await axios.delete(
-      "https://private-de332a-insaatapi6.apiary-mock.com/deleteProject",
+      siteAddress + "/deleteProject",
       requestBody
     );
     // const response = await axios.delete(

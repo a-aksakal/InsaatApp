@@ -14,6 +14,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import GetCityList from "./MockServices/GetCityList";
 import GetGenderList from "./MockServices/GetGenderList";
 import GetIncomeTypeList from "./MockServices/GetIncomeTypeList";
+import siteAddress from "./SiteAddress";
 
 function ListeMusteri() {
   const [customerList, setCustomerList] = useState({
@@ -24,9 +25,7 @@ function ListeMusteri() {
   const [open, setOpen] = useState(false);
 
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getCustomerList"
-    );
+    const response = await axios.get(siteAddress + "/getCustomerList");
     // const response = await axios.get("http://localhost:8080/getCustomerList");
     setCustomerList({
       customers: response.data[0].CustomerTable,
@@ -47,7 +46,7 @@ function ListeMusteri() {
     };
 
     const response = await axios.delete(
-      "https://private-de332a-insaatapi6.apiary-mock.com/deleteCustomer",
+      siteAddress + "/deleteCustomer",
       requestBody
     );
     // const response = await axios.delete(

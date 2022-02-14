@@ -11,6 +11,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import GuncelleCalisan from "./GuncelleCalisan";
+import siteAddress from "./SiteAddress";
 
 function ListeCalisan() {
   const [employeeList, setEmployeeList] = useState({
@@ -21,9 +22,7 @@ function ListeCalisan() {
   const [searchParam, setSearchParam] = useSearchParams();
 
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getEmployeeList"
-    );
+    const response = await axios.get(siteAddress + "/getEmployeeList");
     // const response = await axios.get("http://localhost:8080/getEmployeeList");
     setEmployeeList({
       employees: response.data[0].EmployeeTable,
@@ -44,7 +43,7 @@ function ListeCalisan() {
     };
 
     const response = await axios.delete(
-      "https://private-de332a-insaatapi6.apiary-mock.com/deleteEmployee",
+      siteAddress + "/deleteEmployee",
       requestBody
     );
     // const response = await axios.delete(

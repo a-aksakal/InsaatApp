@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import axios from "axios";
+import SiteAddress from "./SiteAddress";
 
 function FormCinsiyet({ paramSetOpenAdd }) {
   const [genderName, setGenderName] = useState();
@@ -15,10 +16,7 @@ function FormCinsiyet({ paramSetOpenAdd }) {
     //   "http://localhost:8080/postGender",
     //   requestBody
     // );
-    const response = await axios.post(
-      "https://private-de332a-insaatapi6.apiary-mock.com/postGender",
-      requestBody
-    );
+    const response = await axios.post(SiteAddress + "/postGender", requestBody);
     if (response.data.Result == "İşlem Başarılı!") {
       window.alert("Cinsiyet Bilgisi Eklenmiştir.");
       console.log(requestBody);

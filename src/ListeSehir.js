@@ -12,6 +12,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import GuncelleSehir from "./GuncelleSehir";
 import FormSehir from "./FormSehir";
+import siteAddress from "./SiteAddress";
 
 function ListeSehir() {
   const [cityList, setCityList] = useState({
@@ -22,9 +23,7 @@ function ListeSehir() {
   const [openAdd, setOpenAdd] = useState(false);
   const [searchParam, setsearchParam] = useSearchParams();
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getCityList"
-    );
+    const response = await axios.get(siteAddress + "getCityList");
     // const response = await axios.get("http://localhost:8080/getCityList");
     setCityList({
       cities: response.data[0].CityTable,

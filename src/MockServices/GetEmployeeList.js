@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import SiteAddress from "../SiteAddress";
 
 function GetEmployeeList({ setEmployeeID, paramSetEmployeeList }) {
   const [employeeList, setEmployeeList] = useState([]);
 
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getEmployeeList"
-    );
+    const response = await axios.get(SiteAddress + "/getEmployeeList");
     // const response = await axios.get("http://localhost:8080/getEmployeeList");
     setEmployeeList(response.data[0].EmployeeTable);
     if (paramSetEmployeeList != undefined) {

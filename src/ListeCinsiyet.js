@@ -12,6 +12,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { Link, useSearchParams } from "react-router-dom";
 import GuncelleCinsiyet from "./GuncelleCinsiyet";
 import FormCinsiyet from "./FormCinsiyet";
+import siteAddress from "./SiteAddress";
 
 function ListeCinsiyet() {
   const [genderList, setGenderList] = useState({
@@ -23,9 +24,7 @@ function ListeCinsiyet() {
   const [openAdd, setOpenAdd] = useState(false);
 
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getGenderList"
-    );
+    const response = await axios.get(siteAddress + "/getGenderList");
     // const response = await axios.get("http://localhost:8080/getGenderList");
     setGenderList({
       genders: response.data[0].GenderTable,
@@ -55,7 +54,7 @@ function ListeCinsiyet() {
     };
 
     const response = await axios.delete(
-      "https://private-de332a-insaatapi6.apiary-mock.com/deleteGender",
+      siteAddress + "/deleteGender",
       requestBody
     );
     // const response = await axios.delete(

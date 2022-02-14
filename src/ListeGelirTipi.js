@@ -12,6 +12,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import FormGelirTipi from "./FormGelirTipi";
+import siteAddress from "./SiteAddress";
 
 function ListeGelirTipi() {
   const [incomeType, setIncomeType] = useState({
@@ -23,9 +24,7 @@ function ListeGelirTipi() {
   const [searchParam, setsearchParam] = useSearchParams();
 
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getIncomeTypeList"
-    );
+    const response = await axios.get(siteAddress + "/getIncomeTypeList");
     // const response = await axios.get("http://localhost:8080/getIncomeTypeList");
     setIncomeType({
       incomeTypes: response.data[0].IncomeTypeTable,
@@ -39,7 +38,7 @@ function ListeGelirTipi() {
     };
 
     const response = await axios.delete(
-      "https://private-de332a-insaatapi6.apiary-mock.com/deleteIncomeType",
+      siteAddress + "/deleteIncomeType",
       requestBody
     );
     // const response = await axios.delete(

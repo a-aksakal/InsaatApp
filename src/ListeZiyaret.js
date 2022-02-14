@@ -13,6 +13,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { useSearchParams, Link } from "react-router-dom";
 import GuncelleZiyaret from "./GuncelleZiyaret";
 import GetCustomerList from "./MockServices/GetCustomerList";
+import siteAddress from "./SiteAddress";
 
 function ListeZiyaret({ paramSetVisitList }) {
   const [visitList, setVisitList] = useState({
@@ -24,9 +25,7 @@ function ListeZiyaret({ paramSetVisitList }) {
   const [open, setOpen] = useState(false);
 
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getVisitList"
-    );
+    const response = await axios.get(siteAddress + "/getVisitList");
     // const response = await axios.get("http://localhost:8080/getVisitList");
     setVisitList({
       visits: response.data[0].VisitTable,

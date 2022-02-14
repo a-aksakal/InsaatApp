@@ -14,6 +14,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import GuncelleSatis from "./GuncelleSatis";
 import { Link, useSearchParams } from "react-router-dom";
+import siteAddress from "./SiteAddress";
 
 function ListeSatis({ paramSetSalesList }) {
   const [salesList, setSalesList] = useState({
@@ -25,9 +26,7 @@ function ListeSatis({ paramSetSalesList }) {
   const [open, setOpen] = useState(false);
 
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getSalesList"
-    );
+    const response = await axios.get(siteAddress + "/getSalesList");
     // const response = await axios.get("http://localhost:8080/getSalesList");
     setSalesList({
       salesTable: response.data[0].SalesTable,
@@ -52,7 +51,7 @@ function ListeSatis({ paramSetSalesList }) {
     };
 
     const response = await axios.delete(
-      "https://private-de332a-insaatapi6.apiary-mock.com/deleteSales",
+      siteAddress + "/deleteSales",
       requestBody
     );
     // const response = await axios.delete(

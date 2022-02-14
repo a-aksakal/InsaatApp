@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import SiteAddress from "../SiteAddress";
 
 function GetFlatList({ setFlatID, paramSetFlatList }) {
   const [flatList, setFlatList] = useState([]);
 
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getFlatList"
-    );
+    const response = await axios.get(SiteAddress + "/getFlatList");
     // const response = await axios.get("http://localhost:8080/getFlatList");
     setFlatList(response.data[0].FlatTable);
     if (paramSetFlatList != undefined) {

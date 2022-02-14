@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import SiteAddress from "../SiteAddress";
 
 function GetCustomerList({ setCustomerID, paramSetCustomerList }) {
   const [myArrayData, setMyArrayData] = useState([]);
 
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getCustomerList"
-    );
+    const response = await axios.get(SiteAddress + "/getCustomerList");
     // const response = await axios.get("http://localhost:8080/getCustomerList");
 
     setMyArrayData(response.data[0].CustomerTable);

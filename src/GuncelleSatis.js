@@ -7,6 +7,7 @@ import GetEmployeeList from "./MockServices/GetEmployeeList";
 import GetCustomerList from "./MockServices/GetCustomerList";
 import GetFlatList from "./MockServices/GetFlatList";
 import ListeSatis from "./ListeSatis";
+import siteAddress from "./SiteAddress";
 
 function GuncelleSatis({ paramSetOpen }) {
   const [salesDate, setSalesDate] = useState();
@@ -70,10 +71,7 @@ function GuncelleSatis({ paramSetOpen }) {
       Notes: notes,
     };
 
-    const response = await axios.put(
-      "https://private-de332a-insaatapi6.apiary-mock.com/putSales",
-      requestBody
-    );
+    const response = await axios.put(siteAddress + "/putSales", requestBody);
     // const response = await axios.put(
     //   "http://localhost:8080/putSales",
     //   requestBody

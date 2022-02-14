@@ -7,6 +7,7 @@ import GetCustomerList from "./MockServices/GetCustomerList";
 import GetGenderList from "./MockServices/GetGenderList";
 import GetCityList from "./MockServices/GetCityList";
 import GetIncomeTypeList from "./MockServices/GetIncomeTypeList";
+import SiteAddress from "./SiteAddress";
 
 function GuncelleMusteri({ paramSetOpen }) {
   const [searchParam, setSearchParam] = useSearchParams();
@@ -100,10 +101,7 @@ function GuncelleMusteri({ paramSetOpen }) {
       IncomeTypeID: incomeTypeID,
     };
 
-    const response = await axios.put(
-      "https://private-de332a-insaatapi6.apiary-mock.com/putCustomer",
-      requestBody
-    );
+    const response = await axios.put(SiteAddress + "/putCustomer", requestBody);
     // const response = await axios.put(
     //   "http://localhost:8080/putCustomer",
     //   requestBody

@@ -13,6 +13,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 import GuncelleDaireTipi from "./GuncelleDaireTipi";
 import FormDaireTipi from "./FormDaireTipi";
+import siteAddress from "./SiteAddress";
 
 function ListeDaireTipi() {
   const [flatType, setFlatType] = useState({
@@ -24,9 +25,7 @@ function ListeDaireTipi() {
   const [open, setOpen] = useState(false);
   const [openAdd, setOpenAdd] = useState(false);
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getFlatTypeList"
-    );
+    const response = await axios.get(siteAddress + "/getFlatTypeList");
     // const response = await axios.get("http://localhost:8080/getFlatTypeList");
     setFlatType({
       flatTypes: response.data[0].FlatTypeTable,
@@ -55,7 +54,7 @@ function ListeDaireTipi() {
     };
 
     const response = await axios.delete(
-      "https://private-de332a-insaatapi6.apiary-mock.com/deleteFlatType",
+      siteAddress + "/deleteFlatType",
       requestBody
     );
     // const response = await axios.delete(

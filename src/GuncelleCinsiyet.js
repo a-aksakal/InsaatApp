@@ -7,6 +7,7 @@ import GetProjectStatusList from "./MockServices/GetProjectStatusList";
 import { useSearchParams } from "react-router-dom";
 import GetGenderList from "./MockServices/GetGenderList";
 import ListeProje from "./ListeProje";
+import siteAddress from "./SiteAddress";
 
 function GuncelleCinsiyet({ paramSetOpen }) {
   const [genderName, setGenderName] = useState();
@@ -33,10 +34,7 @@ function GuncelleCinsiyet({ paramSetOpen }) {
     //   "http://localhost:8080/putGender",
     //   requestBody
     // );
-    const response = await axios.put(
-      "https://private-de332a-insaatapi6.apiary-mock.com/putGender",
-      requestBody
-    );
+    const response = await axios.put(siteAddress + "/putGender", requestBody);
     if (response.data.Result == "İşlem Başarılı!") {
       window.alert("Cinsiyet Bilgileri Güncellenmiştir.");
       console.log(requestBody);

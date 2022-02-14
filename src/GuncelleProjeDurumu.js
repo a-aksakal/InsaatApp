@@ -6,6 +6,7 @@ import GetCityList from "./MockServices/GetCityList";
 import GetProjectStatusList from "./MockServices/GetProjectStatusList";
 import { useSearchParams } from "react-router-dom";
 import ListeProje from "./ListeProje";
+import siteAddress from "./SiteAddress";
 
 function GuncelleProjeDurumu({ paramSetOpen }) {
   const [projectStatusName, setProjectStatusName] = useState();
@@ -30,7 +31,7 @@ function GuncelleProjeDurumu({ paramSetOpen }) {
     };
 
     const response = await axios.put(
-      "https://private-de332a-insaatapi6.apiary-mock.com/putProjectStatus",
+      siteAddress + "/putProjectStatus",
       requestBody
     );
     // const response = await axios.put(

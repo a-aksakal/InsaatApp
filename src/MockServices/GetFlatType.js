@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import SiteAddress from "../SiteAddress";
 
 function GetFlatType({ paramSetFlatType, setFlatTypeID, labelText }) {
   const [MyFlatType, setMyFlatType] = useState([]);
 
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getFlatTypeList"
-    );
+    const response = await axios.get(SiteAddress + "/getFlatTypeList");
     // const response = await axios.get("http://localhost:8080/getFlatTypeList");
     setMyFlatType(response.data[0].FlatTypeTable);
     if (paramSetFlatType != undefined) {

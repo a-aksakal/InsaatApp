@@ -6,6 +6,7 @@ import GetCityList from "./MockServices/GetCityList";
 import GetProjectStatusList from "./MockServices/GetProjectStatusList";
 import { useSearchParams } from "react-router-dom";
 import GetProjectList from "./MockServices/GetProjectList";
+import siteAddress from "./SiteAddress";
 
 function FormProje() {
   const [projectName, setProjectName] = useState();
@@ -25,7 +26,7 @@ function FormProje() {
     };
 
     const response = await axios.post(
-      "https://private-de332a-insaatapi6.apiary-mock.com/postProject",
+      siteAddress+"/postProject",
       requestBody
     );
     // const response = await axios.post(

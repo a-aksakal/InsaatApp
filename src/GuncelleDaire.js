@@ -10,6 +10,7 @@ import ListeDaire from "./ListeDaire";
 import GetFlatType from "./MockServices/GetFlatType";
 import GetFlatStatus from "./MockServices/GetFlatStatus";
 import GetFlatList from "./MockServices/GetFlatList";
+import siteAddress from "./SiteAddress";
 
 function GuncelleDaire({ paramSetOpen }) {
   const [projectName, setProjectName] = useState();
@@ -60,10 +61,7 @@ function GuncelleDaire({ paramSetOpen }) {
       Price: price,
     };
 
-    const response = await axios.put(
-      "https://private-de332a-insaatapi6.apiary-mock.com/putFlat",
-      requestBody
-    );
+    const response = await axios.put(siteAddress + "/putFlat", requestBody);
     // const response = await axios.put(
     //   "http://localhost:8080/putFlat",
     //   requestBody

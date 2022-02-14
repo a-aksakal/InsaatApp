@@ -7,6 +7,7 @@ import GetProjectStatusList from "./MockServices/GetProjectStatusList";
 import { useSearchParams } from "react-router-dom";
 import GetProjectList from "./MockServices/GetProjectList";
 import ListeProje from "./ListeProje";
+import siteAddress from "./SiteAddress";
 
 function GuncelleProje({ paramSetOpen }) {
   const [projectName, setProjectName] = useState();
@@ -42,10 +43,7 @@ function GuncelleProje({ paramSetOpen }) {
       ProjectStatusID: projectStatusID,
     };
 
-    const response = await axios.put(
-      "https://private-de332a-insaatapi6.apiary-mock.com/putProject",
-      requestBody
-    );
+    const response = await axios.put(siteAddress + "/putProject", requestBody);
     // const response = await axios.put(
     //   "http://localhost:8080/putProject",
     //   requestBody

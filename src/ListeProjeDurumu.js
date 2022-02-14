@@ -12,6 +12,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import GuncelleProjeDurumu from "./GuncelleProjeDurumu";
 import FormProjeDurumu from "./FormProjeDurumu";
+import siteAddress from "./SiteAddress";
 
 function ListeProjeDurumu() {
   const [projectStatus, setProjectStatus] = useState({
@@ -22,9 +23,7 @@ function ListeProjeDurumu() {
   const [open, setOpen] = useState(false);
   const [openAdd, setOpenAdd] = useState(false);
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getProjectStatusList"
-    );
+    const response = await axios.get(siteAddress + "/getProjectStatusList");
     // const response = await axios.get(
     //   "http://localhost:8080/getProjectStatusList"
     // );
@@ -40,7 +39,7 @@ function ListeProjeDurumu() {
     };
 
     const response = await axios.delete(
-      "https://private-de332a-insaatapi6.apiary-mock.com/deleteProjectStatus",
+      siteAddress + "/deleteProjectStatus",
       requestBody
     );
     // const response = await axios.delete(

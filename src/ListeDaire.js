@@ -14,6 +14,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import GuncelleDaire from "./GuncelleDaire";
+import siteAddress from "./SiteAddress";
 
 function ListeDaire() {
   const [flatList, setFlatList] = useState({
@@ -26,9 +27,7 @@ function ListeDaire() {
   const [open, setOpen] = useState(false);
 
   useEffect(async () => {
-    const response = await axios.get(
-      "https://private-de332a-insaatapi6.apiary-mock.com/getFlatList"
-    );
+    const response = await axios.get(siteAddress + "/getFlatList");
     // const response = await axios.get("http://localhost:8080/getFlatList");
     setFlatList({
       flats: response.data[0].FlatTable,
@@ -50,7 +49,7 @@ function ListeDaire() {
     };
 
     const response = await axios.delete(
-      "https://private-de332a-insaatapi6.apiary-mock.com/deleteFlat",
+      siteAddress + "/deleteFlat",
       requestBody
     );
     // const response = await axios.delete(

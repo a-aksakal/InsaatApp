@@ -6,6 +6,7 @@ import GetGenderList from "./MockServices/GetGenderList";
 import GetCityList from "./MockServices/GetCityList";
 import GetIncomeTypeList from "./MockServices/GetIncomeTypeList";
 import GetFlatType from "./MockServices/GetFlatType";
+import siteAddress from "./SiteAddress";
 
 function FormMusteri() {
   const [customerNo, setCustomerNo] = useState();
@@ -39,7 +40,7 @@ function FormMusteri() {
       IncomeTypeID: incomeTypeID,
     };
     const response = await axios.post(
-      "https://private-de332a-insaatapi6.apiary-mock.com/postCustomer",
+      siteAddress+"/postCustomer",
       requestBody
     );
     // const response = await axios.post(

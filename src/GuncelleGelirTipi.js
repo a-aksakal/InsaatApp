@@ -4,6 +4,7 @@ import Header from "./Header";
 import axios from "axios";
 import { useSearchParams, Link } from "react-router-dom";
 import GetIncomeTypeList from "./MockServices/GetIncomeTypeList";
+import SiteAddress from "./SiteAddress";
 
 function GuncelleGelirTipi({ paramSetOpen }) {
   const [incomeTypeName, setIncomeTypeName] = useState();
@@ -26,7 +27,7 @@ function GuncelleGelirTipi({ paramSetOpen }) {
     };
 
     const response = await axios.put(
-      "https://private-de332a-insaatapi6.apiary-mock.com/putIncomeType",
+      SiteAddress + "/putIncomeType",
       requestBody
     );
     // const response = await axios.put(
