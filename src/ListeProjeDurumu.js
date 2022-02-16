@@ -35,7 +35,9 @@ function ListeProjeDurumu() {
 
   const Sil = async (param) => {
     const requestBody = {
-      ProjectStatusID: param,
+      data: {
+        ProjectStatusID: param,
+      },
     };
     if (window.confirm("Silmek istediğinize emin misiniz?")) {
       const response = await axios.delete(

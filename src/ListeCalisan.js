@@ -39,7 +39,9 @@ function ListeCalisan() {
 
   const Sil = async (param) => {
     const requestBody = {
-      EmployeeID: param,
+      data: {
+        EmployeeID: param,
+      },
     };
     if (window.confirm("Silmek istediğinize emin misiniz?")) {
       const response = await axios.delete(

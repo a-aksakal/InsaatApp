@@ -34,7 +34,9 @@ function ListeGelirTipi() {
 
   const Sil = async (param) => {
     const requestBody = {
-      IncomeTypeID: param,
+      data: {
+        IncomeTypeID: param,
+      },
     };
     if (window.confirm("Silmek istediğinize emin misiniz?")) {
       const response = await axios.delete(

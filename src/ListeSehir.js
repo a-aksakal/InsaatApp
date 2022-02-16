@@ -33,7 +33,9 @@ function ListeSehir() {
 
   const Sil = async (param) => {
     const requestBody = {
-      CityID: param,
+      data: {
+        CityID: param,
+      },
     };
     if (window.confirm("Silmek istediğinize emin misiniz?")) {
       const response = await axios.delete(

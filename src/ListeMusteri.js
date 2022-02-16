@@ -42,7 +42,9 @@ function ListeMusteri() {
 
   const Sil = async (param) => {
     const requestBody = {
-      CustomerID: param,
+      data: {
+        CustomerID: param,
+      },
     };
     if (window.confirm("Silmek istediğinize emin misiniz?")) {
       const response = await axios.delete(

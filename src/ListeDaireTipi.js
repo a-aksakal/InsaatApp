@@ -50,7 +50,9 @@ function ListeDaireTipi() {
 
   const Sil = async (param) => {
     const requestBody = {
-      FlatTypeID: param,
+      data: {
+        FlatTypeID: param,
+      },
     };
     if (window.confirm("Silmek istediğinize emin misiniz?")) {
       const response = await axios.delete(

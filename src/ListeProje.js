@@ -33,7 +33,9 @@ function ListeProje() {
 
   const Sil = async (param) => {
     const requestBody = {
-      ProjectID: param,
+      data: {
+        ProjectID: param,
+      },
     };
     if (window.confirm("Silmek istediğinize emin misiniz?")) {
       const response = await axios.delete(

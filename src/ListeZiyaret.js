@@ -46,7 +46,9 @@ function ListeZiyaret({ paramSetVisitList }) {
 
   const Sil = async (param) => {
     const requestBody = {
-      VisitID: param,
+      data: {
+        VisitID: param,
+      },
     };
     if (window.confirm("Silmek istediğinize emin misiniz?")) {
       const response = await axios.delete(

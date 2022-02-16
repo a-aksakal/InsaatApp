@@ -47,7 +47,9 @@ function ListeSatis({ paramSetSalesList }) {
 
   const Sil = async (param) => {
     const requestBody = {
-      SalesID: param,
+      data: {
+        SalesID: param,
+      },
     };
     if (window.confirm("Silmek istediğinize emin misiniz?")) {
       const response = await axios.delete(

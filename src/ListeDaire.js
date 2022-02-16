@@ -45,7 +45,9 @@ function ListeDaire() {
 
   const Sil = async (param) => {
     const requestBody = {
-      FlatID: param,
+      data: {
+        FlatID: param,
+      },
     };
     if (window.confirm("Silmek istediğinize emin misiniz?")) {
       const response = await axios.delete(

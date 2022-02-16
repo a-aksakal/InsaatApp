@@ -50,7 +50,9 @@ function ListeCinsiyet() {
 
   const Sil = async (param) => {
     const requestBody = {
-      GenderID: param,
+      data: {
+        GenderID: param,
+      },
     };
     if (window.confirm("Silmek istediğinize emin misiniz?")) {
       const response = await axios.delete(
