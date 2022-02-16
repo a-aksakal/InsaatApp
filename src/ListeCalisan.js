@@ -41,22 +41,21 @@ function ListeCalisan() {
     const requestBody = {
       EmployeeID: param,
     };
-
-    const response = await axios.delete(
-      siteAddress + "/deleteEmployee",
-      requestBody
-    );
-    // const response = await axios.delete(
-    //   "http://localhost:8080/deleteEmployee",
-    //   requestBody
-    // );
-    if (response.data.Result == "İşlem Başarılı!") {
-      if (window.confirm("Silmek istediğinize emin misiniz?")) {
+    if (window.confirm("Silmek istediğinize emin misiniz?")) {
+      const response = await axios.delete(
+        siteAddress + "/deleteEmployee",
+        requestBody
+      );
+      // const response = await axios.delete(
+      //   "http://localhost:8080/deleteEmployee",
+      //   requestBody
+      // );
+      if (response.data.Result == "İşlem Başarılı!") {
         window.alert("Çalışan Bilgileri Silinmiştir!");
         console.log(requestBody);
+      } else {
+        window.alert("Hata Oluştu!");
       }
-    } else {
-      window.alert("Hata Oluştu!");
     }
   };
   return (

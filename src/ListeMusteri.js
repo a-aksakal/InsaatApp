@@ -44,22 +44,21 @@ function ListeMusteri() {
     const requestBody = {
       CustomerID: param,
     };
-
-    const response = await axios.delete(
-      siteAddress + "/deleteCustomer",
-      requestBody
-    );
-    // const response = await axios.delete(
-    //   "http://localhost:8080/deleteCustomer",
-    //   requestBody
-    // );
-    if (response.data.Result == "İşlem Başarılı!") {
-      if (window.confirm("Silmek istediğinize emin misiniz?")) {
+    if (window.confirm("Silmek istediğinize emin misiniz?")) {
+      const response = await axios.delete(
+        siteAddress + "/deleteCustomer",
+        requestBody
+      );
+      // const response = await axios.delete(
+      //   "http://localhost:8080/deleteCustomer",
+      //   requestBody
+      // );
+      if (response.data.Result == "İşlem Başarılı!") {
         window.alert("Müşteri Bilgileri Silinmiştir!");
         console.log(requestBody);
+      } else {
+        window.alert("Hata Oluştu!");
       }
-    } else {
-      window.alert("Hata Oluştu!");
     }
   };
 

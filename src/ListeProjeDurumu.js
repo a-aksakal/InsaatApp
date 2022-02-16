@@ -37,22 +37,21 @@ function ListeProjeDurumu() {
     const requestBody = {
       ProjectStatusID: param,
     };
-
-    const response = await axios.delete(
-      siteAddress + "/deleteProjectStatus",
-      requestBody
-    );
-    // const response = await axios.delete(
-    //   "http://localhost:8080/deleteProjectStatus",
-    //   requestBody
-    // );
-    if (response.data.Result == "İşlem Başarılı!") {
-      if (window.confirm("Silmek istediğinize emin misiniz?")) {
+    if (window.confirm("Silmek istediğinize emin misiniz?")) {
+      const response = await axios.delete(
+        siteAddress + "/deleteProjectStatus",
+        requestBody
+      );
+      // const response = await axios.delete(
+      //   "http://localhost:8080/deleteProjectStatus",
+      //   requestBody
+      // );
+      if (response.data.Result == "İşlem Başarılı!") {
         window.alert("Proje Durumu Bilgisi Silinmiştir!");
         console.log(requestBody);
+      } else {
+        window.alert("Hata Oluştu!");
       }
-    } else {
-      window.alert("Hata Oluştu!");
     }
   };
 

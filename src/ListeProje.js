@@ -35,22 +35,21 @@ function ListeProje() {
     const requestBody = {
       ProjectID: param,
     };
-
-    const response = await axios.delete(
-      siteAddress + "/deleteProject",
-      requestBody
-    );
-    // const response = await axios.delete(
-    //   "http://localhost:8080/deleteproject",
-    //   requestBody
-    // );
-    if (response.data.Result == "İşlem Başarılı!") {
-      if (window.confirm("Silmek istediğinize emin misiniz?")) {
+    if (window.confirm("Silmek istediğinize emin misiniz?")) {
+      const response = await axios.delete(
+        `${siteAddress}/deleteProject`,
+        requestBody
+      );
+      // const response = await axios.delete(
+      //   "http://localhost:8080/deleteproject",
+      //   requestBody
+      // );
+      if (response.data.Result == "İşlem Başarılı!") {
         window.alert("Proje Bilgileri Silinmiştir!");
         console.log(requestBody);
+      } else {
+        window.alert("Hata Oluştu!");
       }
-    } else {
-      window.alert("Hata Oluştu!");
     }
   };
   return (

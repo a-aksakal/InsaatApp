@@ -47,22 +47,21 @@ function ListeDaire() {
     const requestBody = {
       FlatID: param,
     };
-
-    const response = await axios.delete(
-      siteAddress + "/deleteFlat",
-      requestBody
-    );
-    // const response = await axios.delete(
-    //   "http://localhost:8080/deleteFlat",
-    //   requestBody
-    // );
-    if (response.data.Result == "İşlem Başarılı!") {
-      if (window.confirm("Silmek istediğinize emin misiniz?")) {
+    if (window.confirm("Silmek istediğinize emin misiniz?")) {
+      const response = await axios.delete(
+        siteAddress + "/deleteFlat",
+        requestBody
+      );
+      // const response = await axios.delete(
+      //   "http://localhost:8080/deleteFlat",
+      //   requestBody
+      // );
+      if (response.data.Result == "İşlem Başarılı!") {
         window.alert("Daire Bilgileri Silinmiştir!");
         console.log(requestBody);
+      } else {
+        window.alert("Hata Oluştu!");
       }
-    } else {
-      window.alert("Hata Oluştu!");
     }
   };
   return (

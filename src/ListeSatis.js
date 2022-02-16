@@ -49,22 +49,21 @@ function ListeSatis({ paramSetSalesList }) {
     const requestBody = {
       SalesID: param,
     };
-
-    const response = await axios.delete(
-      siteAddress + "/deleteSales",
-      requestBody
-    );
-    // const response = await axios.delete(
-    //   "http://localhost:8080/deleteSales",
-    //   requestBody
-    // );
-    if (response.data.Result == "İşlem Başarılı!") {
-      if (window.confirm("Silmek istediğinize emin misiniz?")) {
+    if (window.confirm("Silmek istediğinize emin misiniz?")) {
+      const response = await axios.delete(
+        siteAddress + "/deleteSales",
+        requestBody
+      );
+      // const response = await axios.delete(
+      //   "http://localhost:8080/deleteSales",
+      //   requestBody
+      // );
+      if (response.data.Result == "İşlem Başarılı!") {
         window.alert("Satış Bilgileri Silinmiştir!");
         console.log(requestBody);
+      } else {
+        window.alert("Hata Oluştu!");
       }
-    } else {
-      window.alert("Hata Oluştu!");
     }
   };
 

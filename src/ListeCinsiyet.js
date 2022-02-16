@@ -52,22 +52,21 @@ function ListeCinsiyet() {
     const requestBody = {
       GenderID: param,
     };
-
-    const response = await axios.delete(
-      siteAddress + "/deleteGender",
-      requestBody
-    );
-    // const response = await axios.delete(
-    //   "http://localhost:8080/deleteGender",
-    //   requestBody
-    // );
-    if (response.data.Result == "İşlem Başarılı!") {
-      if (window.confirm("Silmek istediğinize emin misiniz?")) {
+    if (window.confirm("Silmek istediğinize emin misiniz?")) {
+      const response = await axios.delete(
+        siteAddress + "/deleteGender",
+        requestBody
+      );
+      // const response = await axios.delete(
+      //   "http://localhost:8080/deleteGender",
+      //   requestBody
+      // );
+      if (response.data.Result == "İşlem Başarılı!") {
         window.alert("Cinsiyet Bilgileri Silinmiştir!");
         console.log(requestBody);
+      } else {
+        window.alert("Hata Oluştu!");
       }
-    } else {
-      window.alert("Hata Oluştu!");
     }
   };
 

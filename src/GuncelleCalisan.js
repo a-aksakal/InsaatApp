@@ -9,8 +9,6 @@ import siteAddress from "./SiteAddress";
 function GuncelleCalisan({ paramSetOpen }) {
   const [name, setName] = useState();
   const [surname, setSurname] = useState();
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
   const [searchParam, setSearchParam] = useSearchParams();
   const [employeeList, setEmployeeList] = useState([]);
   GetEmployeeList({ paramSetEmployeeList: setEmployeeList });
@@ -21,16 +19,8 @@ function GuncelleCalisan({ paramSetOpen }) {
     document.getElementById("txtLastName").value = employeeList
       .filter((repofilter) => repofilter.EmployeeID == searchParam.get("id"))
       .map((repo) => repo.EmployeeSurname);
-    document.getElementById("txtUserName").value = employeeList
-      .filter((repofilter) => repofilter.EmployeeID == searchParam.get("id"))
-      .map((repo) => repo.Username);
-    document.getElementById("txtPassword").value = employeeList
-      .filter((repofilter) => repofilter.EmployeeID == searchParam.get("id"))
-      .map((repo) => repo.Password);
     setName(document.getElementById("txtFirstName").value);
     setSurname(document.getElementById("txtLastName").value);
-    setUsername(document.getElementById("txtUserName").value);
-    setPassword(document.getElementById("txtPassword").value);
   }, [employeeList]);
 
   const Guncelle = async () => {
@@ -38,8 +28,6 @@ function GuncelleCalisan({ paramSetOpen }) {
       EmployeeID: searchParam.get("id"),
       EmployeeName: name,
       EmployeeSurname: surname,
-      Username: username,
-      Password: password,
     };
 
     const response = await axios.put(siteAddress + "/putEmployee", requestBody);
@@ -91,42 +79,6 @@ function GuncelleCalisan({ paramSetOpen }) {
                 required
                 onChange={(e) => setSurname(e.target.value)}
               />
-            </div>
-            <div className="form-group">
-              <label>Kullanıcı Adı *</label>
-              <div className="input-group">
-                <span className="input-group-addon">
-                  <i className="fa fa-user" />
-                </span>
-                <input
-                  type="text"
-                  id="txtUserName"
-                  name="txtUserName"
-                  className="form-control"
-                  placeholder="Kullanıcı Adı"
-                  autoComplete="off"
-                  required
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </div>
-            </div>
-            <div className="form-group">
-              <label>Parola *</label>
-              <div className="input-group">
-                <span className="input-group-addon">
-                  <i className="fa fa-lock" />
-                </span>
-                <input
-                  type="password"
-                  id="txtPassword"
-                  name="txtPassword"
-                  className="form-control"
-                  autoComplete="off"
-                  placeholder="Parola"
-                  required
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
             </div>
           </div>
           <div className="form-actions right">
