@@ -40,14 +40,14 @@ function FormMusteri() {
       IncomeTypeID: incomeTypeID,
     };
     const response = await axios.post(
-      siteAddress+"/postCustomer",
+      siteAddress + "/postCustomer",
       requestBody
     );
     // const response = await axios.post(
     //   "http://localhost:8080/postCustomer",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Müşteri kaydı başarıyla oluşturuldu!");
       console.log(requestBody);
     } else {

@@ -20,7 +20,7 @@ function FormProjeDurumu({ paramSetOpenAdd }) {
       SiteAddress + "/postProjectStatus",
       requestBody
     );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Proje Durumu Bilgisi Eklenmiştir.");
       console.log(requestBody);
     } else {

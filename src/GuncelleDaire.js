@@ -66,7 +66,7 @@ function GuncelleDaire({ paramSetOpen }) {
     //   "http://localhost:8080/putFlat",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Daire Bilgileri Güncellenmiştir.");
       console.log(requestBody);
     } else {

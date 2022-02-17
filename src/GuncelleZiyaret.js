@@ -68,7 +68,7 @@ function GuncelleZiyaret({ paramSetOpen }) {
     //   "http://localhost:8080/putVisit",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Ziyaret Bilgileri Güncellenmiştir.");
       console.log(requestBody);
     } else {

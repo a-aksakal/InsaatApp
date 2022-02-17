@@ -17,7 +17,7 @@ function FormSehir({ paramSetOpenAdd }) {
     //   requestBody
     // );
     const response = await axios.post(SiteAddress + "/postCity", requestBody);
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Şehir Bilgisi Eklenmiştir.");
       console.log(requestBody);
     } else {

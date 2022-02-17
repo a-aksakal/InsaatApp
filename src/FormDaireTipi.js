@@ -20,7 +20,7 @@ function FormDaireTipi({ paramSetOpenAdd }) {
       SiteAddress + "/postFlatType",
       requestBody
     );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Daire Tipi Bilgisi Eklenmiştir.");
       console.log(requestBody);
     } else {

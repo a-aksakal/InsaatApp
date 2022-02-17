@@ -52,7 +52,7 @@ function ListeCalisan() {
       //   "http://localhost:8080/deleteEmployee",
       //   requestBody
       // );
-      if (response.data.Result == "İşlem Başarılı!") {
+      if (response.config.status == 200 || 201) {
         window.alert("Çalışan Bilgileri Silinmiştir!");
         console.log(requestBody);
       } else {

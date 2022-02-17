@@ -35,7 +35,7 @@ function GuncelleDaireTipi({ paramSetOpen }) {
     //   "http://localhost:8080/putFlatType",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Daire Tipi Bilgileri Güncellenmiştir.");
       console.log(requestBody);
     } else {

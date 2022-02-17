@@ -58,7 +58,7 @@ function ListeDaire() {
       //   "http://localhost:8080/deleteFlat",
       //   requestBody
       // );
-      if (response.data.Result == "İşlem Başarılı!") {
+      if (response.config.status == 200 || 201) {
         window.alert("Daire Bilgileri Silinmiştir!");
         console.log(requestBody);
       } else {

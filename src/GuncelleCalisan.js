@@ -35,7 +35,7 @@ function GuncelleCalisan({ paramSetOpen }) {
     //   "http://localhost:8080/putEmployee",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Çalışan Bilgileri Güncellenmiştir.");
       console.log(requestBody);
     } else {

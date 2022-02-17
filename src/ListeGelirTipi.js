@@ -47,7 +47,7 @@ function ListeGelirTipi() {
       //   "http://localhost:8080/deleteIncomeType",
       //   requestBody
       // );
-      if (response.data.Result == "İşlem Başarılı!") {
+      if (response.config.status == 200 || 201) {
         window.alert("Gelir Bilgileri Silinmiştir!");
         console.log(requestBody);
       } else {

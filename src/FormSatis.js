@@ -30,7 +30,7 @@ function FormSatis() {
     //   "http://localhost:8080/postSales",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Satış Kaydı Oluşturulmuştur.");
       console.log(requestBody);
     } else {

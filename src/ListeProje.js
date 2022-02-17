@@ -46,7 +46,7 @@ function ListeProje() {
       //   "http://localhost:8080/deleteproject",
       //   requestBody
       // );
-      if (response.data.Result == "İşlem Başarılı!") {
+      if (response.config.status == 200 || 201) {
         window.alert("Proje Bilgileri Silinmiştir!");
         console.log(requestBody);
       } else {

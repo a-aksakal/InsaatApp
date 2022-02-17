@@ -28,7 +28,7 @@ function FormDaire() {
     //   "http://localhost:8080/postFlat",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Daire Kaydı Oluşturulmuştur.");
       console.log(requestBody);
     } else {

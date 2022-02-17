@@ -46,7 +46,7 @@ function ListeSehir() {
       //   "http://localhost:8080/deleteCity",
       //   requestBody
       // );
-      if (response.data.Result == "İşlem Başarılı!") {
+      if (response.config.status == 200 || 201) {
         window.alert("Şehir Bilgileri Silinmiştir!");
         console.log(requestBody);
       } else {

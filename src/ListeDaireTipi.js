@@ -63,7 +63,7 @@ function ListeDaireTipi() {
       //   "http://localhost:8080/deleteFlatType",
       //   requestBody
       // );
-      if (response.data.Result == "İşlem Başarılı!") {
+      if (response.config.status == 200 || 201) {
         window.alert("Daire Tipi Bilgileri Silinmiştir!");
         console.log(requestBody);
       } else {

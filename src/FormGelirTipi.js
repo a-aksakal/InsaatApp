@@ -17,10 +17,10 @@ function FormGelirTipi({ paramSetOpenAdd }) {
     //   requestBody
     // );
     const response = await axios.post(
-      SiteAddress + "postIncomeType",
+      SiteAddress + "/postIncomeType",
       requestBody
     );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Gelir Tipi Bilgisi Eklenmiştir.");
       console.log(requestBody);
     } else {

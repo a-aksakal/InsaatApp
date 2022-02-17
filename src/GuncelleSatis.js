@@ -76,7 +76,7 @@ function GuncelleSatis({ paramSetOpen }) {
     //   "http://localhost:8080/putSales",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Satış Bilgileri Güncellenmiştir.");
       console.log(requestBody);
     } else {

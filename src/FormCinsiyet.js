@@ -17,7 +17,7 @@ function FormCinsiyet({ paramSetOpenAdd }) {
     //   requestBody
     // );
     const response = await axios.post(SiteAddress + "/postGender", requestBody);
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Cinsiyet Bilgisi Eklenmiştir.");
       console.log(requestBody);
     } else {

@@ -35,7 +35,7 @@ function GuncelleCinsiyet({ paramSetOpen }) {
     //   requestBody
     // );
     const response = await axios.put(siteAddress + "/putGender", requestBody);
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Cinsiyet Bilgileri Güncellenmiştir.");
       console.log(requestBody);
     } else {

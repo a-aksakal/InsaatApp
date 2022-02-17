@@ -25,9 +25,10 @@ function FormCalisan() {
     //   "http://localhost:8080/postEmployee",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Çalışan Kaydı Oluşturulmuştur.");
       console.log(requestBody);
+      console.log(response);
     } else {
       window.alert("Hata Oluştu!");
     }

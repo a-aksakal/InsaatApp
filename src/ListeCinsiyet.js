@@ -63,7 +63,7 @@ function ListeCinsiyet() {
       //   "http://localhost:8080/deleteGender",
       //   requestBody
       // );
-      if (response.data.Result == "İşlem Başarılı!") {
+      if (response.config.status == 200 || 201) {
         window.alert("Cinsiyet Bilgileri Silinmiştir!");
         console.log(requestBody);
       } else {

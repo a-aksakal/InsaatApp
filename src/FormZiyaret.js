@@ -25,7 +25,7 @@ function FormZiyaret() {
     //   "http://localhost:8080/postVisit",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Ziyaret Kaydı Oluşturulmuştur.");
       console.log(requestBody);
     } else {

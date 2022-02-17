@@ -26,14 +26,14 @@ function FormProje() {
     };
 
     const response = await axios.post(
-      siteAddress+"/postProject",
+      siteAddress + "/postProject",
       requestBody
     );
     // const response = await axios.post(
     //   "http://localhost:8080/postProject",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Proje Kaydı Oluşturulmuştur.");
       console.log(requestBody);
     } else {

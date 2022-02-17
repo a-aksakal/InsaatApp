@@ -55,7 +55,7 @@ function ListeMusteri() {
       //   "http://localhost:8080/deleteCustomer",
       //   requestBody
       // );
-      if (response.data.Result == "İşlem Başarılı!") {
+      if (response.config.status == 200 || 201) {
         window.alert("Müşteri Bilgileri Silinmiştir!");
         console.log(requestBody);
       } else {

@@ -48,7 +48,7 @@ function GuncelleProje({ paramSetOpen }) {
     //   "http://localhost:8080/putProject",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Proje Bilgileri Güncellenmiştir.");
       console.log(requestBody);
     } else {

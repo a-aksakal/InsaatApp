@@ -59,7 +59,7 @@ function ListeZiyaret({ paramSetVisitList }) {
       //   "http://localhost:8080/deleteVisit",
       //   requestBody
       // );
-      if (response.data.Result == "İşlem Başarılı!") {
+      if (response.config.status == 200 || 201) {
         window.alert("Ziyaret Bilgileri Silinmiştir!");
         console.log(requestBody);
       } else {

@@ -60,7 +60,7 @@ function ListeSatis({ paramSetSalesList }) {
       //   "http://localhost:8080/deleteSales",
       //   requestBody
       // );
-      if (response.data.Result == "İşlem Başarılı!") {
+      if (response.config.status == 200 || 201) {
         window.alert("Satış Bilgileri Silinmiştir!");
         console.log(requestBody);
       } else {

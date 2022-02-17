@@ -19,7 +19,7 @@ function Login() {
       "https://private-de332a-insaatapi6.apiary-mock.com/postVisit",
       requestBody
     );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       localStorage.setItem("username", username);
       navigate("/index2");
     } else {

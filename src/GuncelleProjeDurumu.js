@@ -38,7 +38,7 @@ function GuncelleProjeDurumu({ paramSetOpen }) {
     //   "http://lcoalhost:8080/putProjectStatus",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Proje Durumu Bilgileri Güncellenmiştir.");
       console.log(requestBody);
     } else {

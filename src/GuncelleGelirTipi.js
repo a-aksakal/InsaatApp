@@ -34,7 +34,7 @@ function GuncelleGelirTipi({ paramSetOpen }) {
     //   "http://localhost:8080/putIncomeType",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Gelir Tipi Bilgileri Güncellenmiştir.");
       console.log(requestBody);
     } else {

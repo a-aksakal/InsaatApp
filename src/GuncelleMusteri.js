@@ -106,7 +106,7 @@ function GuncelleMusteri({ paramSetOpen }) {
     //   "http://localhost:8080/putCustomer",
     //   requestBody
     // );
-    if (response.data.Result == "İşlem Başarılı!") {
+    if (response.config.status == 200 || 201) {
       window.alert("Müşteri Bilgileri Güncellenmiştir.");
       console.log(requestBody);
     } else {
