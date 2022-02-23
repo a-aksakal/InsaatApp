@@ -23,6 +23,10 @@ function ListeSehir() {
   const [openAdd, setOpenAdd] = useState(false);
   const [searchParam, setsearchParam] = useSearchParams();
   useEffect(async () => {
+    //JWT KONTROLÜ İÇİN BUNU YAPMAK GEREKİYOR.
+    // const requestBody = {
+    //   params: { myJwt: localStorage.getItem("cookies") },
+    // };
     const response = await axios.get(siteAddress + "/getCityList");
     // const response = await axios.get("http://localhost:8080/getCityList");
     setCityList({

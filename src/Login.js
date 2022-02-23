@@ -2,6 +2,8 @@ import Index2 from "./Index2";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import SiteAddress from "./SiteAddress";
+import siteAddress from "./SiteAddress";
 function Login() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
@@ -11,14 +13,22 @@ function Login() {
   }, []);
   const Authentication = async () => {
     const requestBody = {
-      username: username,
+      email: username,
       password: password,
     };
-
+    //JWT İÇİN BUNU YAPMAK GEREKİYOR.
+    //const response = await axios.post(siteAddress + "/postLogin", requestBody);
+    // if (response.data.Jwt != null) {
+    //   localStorage.setItem("username", username);
+    //   localStorage.setItem("cookies", response.data.Jwt);
+    //   navigate("/index2");
+    // } else {
+    //   window.alert("Hatalı Giriş.");
+    // }
     const response = await axios.post(
-      "https://private-de332a-insaatapi6.apiary-mock.com/postVisit",
-      requestBody
+      "https://private-de332a-insaatapi6.apiary-mock.com/postCity"
     );
+
     if (response.config.status == 200 || 201) {
       localStorage.setItem("username", username);
       navigate("/index2");
