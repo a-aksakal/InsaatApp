@@ -25,6 +25,16 @@ function FormMusteri() {
 
   GetFlatType({ paramSetFlatType: setFlatTypeList });
 
+  const FlatTypeCheck = (param) => {
+    if (customerFlatType.includes(param)) {
+      let arrayIndex = customerFlatType.indexOf(param);
+      customerFlatType.splice(arrayIndex, 1);
+    } else {
+      customerFlatType.push(param);
+    }
+    console.log(customerFlatType);
+  };
+
   const Send = async () => {
     const requestBody = {
       CustomerName: name,
@@ -38,6 +48,7 @@ function FormMusteri() {
       CityID: cityID,
       CustomerNo: customerNo,
       IncomeTypeID: incomeTypeID,
+      CustomerFlatType: customerFlatType,
     };
     const response = await axios.post(
       siteAddress + "/postCustomer",
@@ -510,9 +521,7 @@ function FormMusteri() {
                                   name="chkSuiteType"
                                   key={index}
                                   value={repo.FlatTypeID}
-                                  onClick={(e) =>
-                                    setCustomerFlatType(e.target.Value)
-                                  }
+                                  onClick={(e) => FlatTypeCheck(e.target.value)}
                                 />{" "}
                                 {repo.FlatTypeName}{" "}
                               </label>
